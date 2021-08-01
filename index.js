@@ -1,6 +1,6 @@
-var http = require('http');
-var url = require('url');
-var fs = require('fs');
+const http = require('http');
+const url = require('url');
+const fs = require('fs');
 console.clear();
 
 
@@ -26,7 +26,7 @@ catch{
             return;
         }
       res.writeHead(404, {'Content-Type': 'text/html'});
-      return res.end("404 Not Found\n" + filename + " is wrong");
+      return res.end("404 Not Found\n<br /><code>" + filename + "</code> is wrong");
     }
     var contenttype = "";
     if ( filename.endsWith( ".html" ) )
