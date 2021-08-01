@@ -27,8 +27,15 @@ catch{
         }
       res.writeHead(404, {'Content-Type': 'text/html'});
       return res.end("404 Not Found\n" + filename + " is wrong");
-    } 
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    }
+    var contenttype = "";
+    if ( filename.endsWith( ".html" ) )
+      contenttype = "text/html";
+    else if ( filename.endsWith( ".css" ) )
+      contenttype = "text/css";
+    else if ( filename.endsWith( ".js" ) )
+      contenttype = "text/javascript";
+    res.writeHead( 200, { 'Content-Type': contenttype } );
     res.write(data);
     return res.end();
   });
