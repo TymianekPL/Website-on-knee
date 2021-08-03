@@ -26,7 +26,7 @@ catch{
             return;
         }
       res.writeHead(404, {'Content-Type': 'text/html'});
-      return res.end("404 Not Found\n" + filename + " is wrong");
+      return res.end("404 Not Found\n<br /><code>" + filename + "</code> is wrong");
     }
     let contentType = ``;
     if ( filename.endsWith( ".html" ) )
